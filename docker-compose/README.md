@@ -88,3 +88,29 @@ make stop
 ```
 
 ***Note***: Makefile uses the same .env files since it is running docker-compose services inside.
+
+***fiels to change***:
+default.conf.template
+common-frontend.env
+common-blockscout.env
+docker-compose.yml
+
+
+default.conf.template --> Access-Control-Allow-Origin
+common-frontend.env --> EC2 in NEXT_PUBLIC_API_HOST, NEXT_PUBLIC_STATS_API_HOST, NEXT_PUBLIC_VISUALIZE_API_HOST, NEXT_PUBLIC_APP_HOST
+common-blockscout.env --> rpc
+docker-compose.yml --> rpc
+---
+docker rm -f $(docker ps -a -q)
+docker-compose down or docker compose down
+docker system prune
+docker-compose up --build
+
+to delete data
+
+root@ip-172-31-11-200:/home/ubuntu/blockscout/docker-compose/services# rm -rf logs/
+root@ip-172-31-11-200:/home/ubuntu/blockscout/docker-compose/services# rm -rf redis-data/
+root@ip-172-31-11-200:/home/ubuntu/blockscout/docker-compose/services# rm -rf stats-db-data/
+root@ip-172-31-11-200:/home/ubuntu/blockscout/docker-compose/services# rm -rf blockscout-db-data/
+
+
