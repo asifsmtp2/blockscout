@@ -89,6 +89,14 @@ make stop
 
 ***Note***: Makefile uses the same .env files since it is running docker-compose services inside.
 
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y pkg-config curl git build-essential libssl-dev screen unzip docker.io
+
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+
 ***fiels to change***:
 default.conf.template
 common-frontend.env
